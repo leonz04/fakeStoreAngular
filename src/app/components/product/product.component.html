@@ -1,0 +1,14 @@
+
+<ng-container *ngIf="product">   
+ 
+    <h2 >{{product.title}}</h2>
+    <p>${{product.price}}</p>
+    <p>{{product.description}}</p>
+    <img   [ngSrc]='product.images[0]' width="466" height="800">
+    <button (click)="update(product.id, product)">Update</button>
+</ng-container>
+<ng-container *ngIf="!product">
+    Producto no renderizado
+</ng-container>
+
+
