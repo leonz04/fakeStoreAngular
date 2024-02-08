@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from '../../models/product.model';
 import { ProductService } from '../../product-service.service';
 import { NgOptimizedImage } from '@angular/common';
+import { ShareDataService } from '../../share-data.service';
 
 @Component({
   selector: 'app-product',
@@ -16,40 +16,28 @@ export class ProductComponent {
 
 
   @Input() product!:Product;
-
-  @Output() changeProduct= new EventEmitter<Product>();
-
+  @Output() deleteProduct = new EventEmitter<number>(); // Emitir evento de eliminación
 
 
-  constructor(private productService: ProductService, private fb: FormBuilder) { }
+
+
+  constructor(private productService: ProductService, private sharedDataService: ShareDataService ) { }
   
-  update(id:number,productedit:Product):void { 
+  updateForm(productedit:Product):void {
 
-    this.changeProduct.emit(productedit)
+    this.sharedDataService.updateProduct(productedit)
 
-    console.log(this.product)
+}
 
-    console.log(this.product.title)
-    console.log(productedit.title)
-    
-    this.product.title = productedit.title;
-    this.product.description = productedit.description;
-    //this.product.title= "LeonZ"
-    //this.product.description="Peligroso animal"
-    // this.product.images=["https://media.istockphoto.com/id/877369086/es/foto/le%C3%B3n-panthera-leo-10-a%C3%B1os-de-edad-aislado-en-blanco.jpg?s=612x612&w=0&k=20&c=DY-jSoHGFJ-_fstEWhOZ5kAufR1zHFjwQdwZjI1vEoI="]
-    
-    console.log('first')
-  //   this.productService.updateProduct(id.toString(),product).subscribe(data => {       
-
-  //   // Mostramos la respuesta del servidor
-  //   console.log(data);
-
-  // })
+delete(): void {
+  // Emitir el evento de eliminación con el ID del producto
+  this.deleteProduct.emit(this.product.id);
+}
 }
 
 
 
     
-}
+
 
 

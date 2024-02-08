@@ -1,14 +1,19 @@
 
-<ng-container *ngIf="product">   
- 
-    <h2 >{{product.title}}</h2>
-    <p>${{product.price}}</p>
-    <p>{{product.description}}</p>
-    <img   [ngSrc]='product.images[0]' width="466" height="800">
-    <button (click)="update(product.id, product)">Update</button>
+<div class=" bg-blue-50 h-full" >
+<ng-container *ngIf="product" >   
+    <div class="bg-red-300 flex-col justify-between h-full">
+    <h2 class="text-lg font-semibold flex-1" >{{product.title}}</h2>
+    <p class="font-light flex-1">${{product.price}}</p>
+    <p class="text-sm text-justify flex-1">{{product.description}}</p>
+    <img  class="object-contain flex-1" [ngSrc]='product.images[0]' width="466" height="800">
+    <button (click)="updateForm(product)" class="flex-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-1 ml-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update</button>
+    <button (click)="delete()" class="flex-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-1 ml-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</button>
+</div>
 </ng-container>
 <ng-container *ngIf="!product">
     Producto no renderizado
 </ng-container>
+
+</div>
 
 
