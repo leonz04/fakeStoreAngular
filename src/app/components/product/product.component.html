@@ -1,11 +1,13 @@
 
-<div class=" bg-blue-50 h-full" >
-<ng-container *ngIf="product" >   
-    <div class="bg-red-300 flex-col justify-between h-full">
+<div class=" bg-blue-50 flex flex-col justify- h-full" >
+<ng-container *ngIf="product" >
+    <div>
     <h2 class="text-lg font-semibold flex-1" >{{product.title}}</h2>
     <p class="font-light flex-1">${{product.price}}</p>
+</div>   
     <p class="text-sm text-justify flex-1">{{product.description}}</p>
     <img  class="object-contain flex-1" [ngSrc]='product.images[0]' width="466" height="800">
+    <div class=" flex justify-center">
     <button (click)="updateForm(product)" class="flex-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-1 ml-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update</button>
     <button (click)="delete()" class="flex-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-1 ml-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete</button>
 </div>

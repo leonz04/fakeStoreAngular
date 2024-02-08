@@ -26,5 +26,5 @@
   </button>
 </form>
 <section class="flex-wrap flex">
-<app-product class="w-1/4  flex px-2 py-2 " [product]="product" (deleteProduct)="deleteProduct($event)" *ngFor="let  product of products"></app-product>
+<app-product class="w-1/4  flex flex-col justify-between px-2 py-2 " [product]="product" (deleteProduct)="deleteProduct($event)" *ngFor="let  product of products"></app-product>
 </section>
